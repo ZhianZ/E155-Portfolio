@@ -1,0 +1,15 @@
+---
+title: "E155 Portforlio"
+image: images/headshot.JPG
+about:
+    template: jolla
+    links: 
+      - icon: linkedin
+        text: Linkedin
+        href: https://www.linkedin.com/in/zhian-zhou-14ba8b325/
+      - icon: github
+        text: Github
+        href: https://github.com/ZhianZ
+---
+
+Zhian Zhou is an Engineering major student at [Harvey Mudd College](https://hmc.edu).

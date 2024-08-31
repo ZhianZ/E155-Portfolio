@@ -1,0 +1,14 @@
+---
+title: "Blog 1"
+description: "Initial learning goals"
+author: "Zhian Zhou"
+date: "8/30/24"
+categories:
+  - reflection
+  - labreport
+draft: false
+---
+
+My initial learning goals involve building a strong foundation in embedded systems design. With a basic understanding of digital design and microcontroller programming, I hope to deepen my knowledge and skills.
+
+The first goal is to become proficient in designing and implementing combinational and sequential circuits on FPGAs. I also want to gain hands-on experience with microcontrollers to create functional embedded systems. Additionally, my goal is to develop the ability to select the suitable hardware components and to debug circuits. Beyond the technical skills, I want to improve my ability to communicate complex technical results clearly and professionally through presentations and reports.
