@@ -1,24 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://ZhianZ.github.io/E155-Portfolio/posts/lab2-post.html</loc>
+    <lastmod>2024-09-12T04:45:39.615Z</lastmod>
+  </url>
+  <url>
     <loc>https://ZhianZ.github.io/E155-Portfolio/posts/first-post.html</loc>
     <lastmod>2024-08-31T05:51:38.658Z</lastmod>
   </url>
   <url>
     <loc>https://ZhianZ.github.io/E155-Portfolio/labs/lab6/lab6.html</loc>
-    <lastmod>2024-08-31T05:51:38.657Z</lastmod>
+    <lastmod>2024-09-12T04:32:01.176Z</lastmod>
   </url>
   <url>
     <loc>https://ZhianZ.github.io/E155-Portfolio/labs/lab4/lab4.html</loc>
-    <lastmod>2024-08-31T05:51:38.656Z</lastmod>
+    <lastmod>2024-09-12T04:32:18.088Z</lastmod>
   </url>
   <url>
     <loc>https://ZhianZ.github.io/E155-Portfolio/labs/lab2/lab2.html</loc>
-    <lastmod>2024-08-31T05:51:38.655Z</lastmod>
+    <lastmod>2024-09-12T21:28:33.836Z</lastmod>
   </url>
   <url>
     <loc>https://ZhianZ.github.io/E155-Portfolio/index.html</loc>
-    <lastmod>2024-08-31T05:51:38.654Z</lastmod>
+    <lastmod>2024-10-02T19:40:30.443Z</lastmod>
   </url>
   <url>
     <loc>https://ZhianZ.github.io/E155-Portfolio/blog.html</loc>
@@ -26,18 +30,22 @@
   </url>
   <url>
     <loc>https://ZhianZ.github.io/E155-Portfolio/labs/lab1/lab1.html</loc>
-    <lastmod>2024-08-31T05:51:38.655Z</lastmod>
+    <lastmod>2024-10-02T19:41:42.549Z</lastmod>
   </url>
   <url>
     <loc>https://ZhianZ.github.io/E155-Portfolio/labs/lab3/lab3.html</loc>
-    <lastmod>2024-08-31T05:51:38.656Z</lastmod>
+    <lastmod>2024-09-12T04:32:27.703Z</lastmod>
   </url>
   <url>
     <loc>https://ZhianZ.github.io/E155-Portfolio/labs/lab5/lab5.html</loc>
-    <lastmod>2024-08-31T05:51:38.656Z</lastmod>
+    <lastmod>2024-09-12T04:32:11.114Z</lastmod>
   </url>
   <url>
     <loc>https://ZhianZ.github.io/E155-Portfolio/labs/lab7/lab7.html</loc>
-    <lastmod>2024-08-31T05:51:38.657Z</lastmod>
+    <lastmod>2024-09-12T04:31:39.475Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ZhianZ.github.io/E155-Portfolio/posts/lab1-post.html</loc>
+    <lastmod>2024-09-12T04:45:37.671Z</lastmod>
   </url>
 </urlset>

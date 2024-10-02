@@ -1,10 +1,31 @@
 [
   {
+    "objectID": "posts/lab2-post.html",
+    "href": "posts/lab2-post.html",
+    "title": "Lab 2 Blog",
+    "section": "",
+    "text": "The list below is a non-exhaustive list of ideas of things you could write about if you’re struggling to come up with ideas.\nWhat is something interesting you learned recently in lab or lecture? How do you feel like the course is helping you to grow as a person? Reflect on the character traits you listed at the beginning of the course for ideas about specific areas of growth to reflect on. What did you think about a recent AI prototype? How did your use of AI shape your thinking about what role these tools might play in the future of digital hardware design? Search the Internet for a recent article related to embedded systems. Reflect on those systems through the lens of what you’re learning in MicroPs. What are some ideas you’re thinking about exploring in your project and why?"
+  },
+  {
     "objectID": "posts/first-post.html",
     "href": "posts/first-post.html",
     "title": "Blog 1",
     "section": "",
     "text": "My initial learning goals involve building a strong foundation in embedded systems design. With a basic understanding of digital design and microcontroller programming, I hope to deepen my knowledge and skills.\nThe first goal is to become proficient in designing and implementing combinational and sequential circuits on FPGAs. I also want to gain hands-on experience with microcontrollers to create functional embedded systems. Additionally, my goal is to develop the ability to select the suitable hardware components and to debug circuits. Beyond the technical skills, I want to improve my ability to communicate complex technical results clearly and professionally through presentations and reports."
+  },
+  {
+    "objectID": "labs/lab2/lab2.html",
+    "href": "labs/lab2/lab2.html",
+    "title": "hmc-e155-portforlio",
+    "section": "",
+    "text": "This lab aims to implemented a time-multiplexing scheme to drive two common anode 7-segment displays with a single set of FPGA I/O pins. Two 4 DIP switches are the inputs to each display. The sum of two hexadecimal numbers will be shown by 5 LEDs.\n\n\n\nWhile the signals input to the cathodes of the 7-segment displays are provided by FPGA in a way similar to Lab 1, the two common anodes are each connected to an PNP transistor so that FPGA pins don’t need to drive a large current. Time multiplexing is used to run both half of the dual 7-segment display. The design only set one half of the display to ON at a time and the switching speed is high enough that the digits don’t flicker.\nThe onboard high speed oscillator (HSOSC) with a clock divider is use to generate an enable signal to drive the common anode low and high. When the anode of one half of the dual segment display is high, the 7 FPGA pins will output the corresponding signals.\n\n\n\nThe source code for the project can be found in the associated Github repository.\n\n\n Figure 1. Block diagram of the verilog design\nThe block diagram in Figure 1 demonstrates the overall architecture of the design. The top-level module top includes two submodules: seven segment decoder module (seven_seg_decoder) and time multiplexing module (time_multiplexing).\n\n\n\n Figure 2. Schematic of the physical circuit.\n\n\n\n\n\n\n\nThe design successfully display two hexadecimal numbers with only 7 FPGA pins without blending or flickering. I spent a total of hours working on this lab."
+  },
+  {
+    "objectID": "labs/lab2/lab2.html#lab-2-multiplexed-7-segment-display",
+    "href": "labs/lab2/lab2.html#lab-2-multiplexed-7-segment-display",
+    "title": "hmc-e155-portforlio",
+    "section": "",
+    "text": "This lab aims to implemented a time-multiplexing scheme to drive two common anode 7-segment displays with a single set of FPGA I/O pins. Two 4 DIP switches are the inputs to each display. The sum of two hexadecimal numbers will be shown by 5 LEDs.\n\n\n\nWhile the signals input to the cathodes of the 7-segment displays are provided by FPGA in a way similar to Lab 1, the two common anodes are each connected to an PNP transistor so that FPGA pins don’t need to drive a large current. Time multiplexing is used to run both half of the dual 7-segment display. The design only set one half of the display to ON at a time and the switching speed is high enough that the digits don’t flicker.\nThe onboard high speed oscillator (HSOSC) with a clock divider is use to generate an enable signal to drive the common anode low and high. When the anode of one half of the dual segment display is high, the 7 FPGA pins will output the corresponding signals.\n\n\n\nThe source code for the project can be found in the associated Github repository.\n\n\n Figure 1. Block diagram of the verilog design\nThe block diagram in Figure 1 demonstrates the overall architecture of the design. The top-level module top includes two submodules: seven segment decoder module (seven_seg_decoder) and time multiplexing module (time_multiplexing).\n\n\n\n Figure 2. Schematic of the physical circuit.\n\n\n\n\n\n\n\nThe design successfully display two hexadecimal numbers with only 7 FPGA pins without blending or flickering. I spent a total of hours working on this lab."
   },
   {
     "objectID": "index.html",
@@ -18,6 +39,27 @@
     "href": "blog.html",
     "title": "E155 Blog",
     "section": "",
-    "text": "Blog 1\n\n\n\n\n\nInitial learning goals\n\n\n\n\n\nAug 30, 2024\n\n\nZhian Zhou\n\n\n\n\n\n\nNo matching items"
+    "text": "Lab 2 Blog\n\n\n\n\n\nMultiplexed 7-Segment Display\n\n\n\n\n\nSep 12, 2024\n\n\nZhian Zhou\n\n\n\n\n\n\n\n\n\n\n\n\nLab 1 Blog\n\n\n\n\n\nFPGA and MCU Setup and Testing\n\n\n\n\n\nSep 5, 2024\n\n\nZhian Zhou\n\n\n\n\n\n\n\n\n\n\n\n\nBlog 1\n\n\n\n\n\nInitial learning goals\n\n\n\n\n\nAug 30, 2024\n\n\nZhian Zhou\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "labs/lab1/lab1.html",
+    "href": "labs/lab1/lab1.html",
+    "title": "hmc-e155-portforlio",
+    "section": "",
+    "text": "This lab aims to setup the FPGA and MCU board, and design a circuit to control 3 onboard LEDs and a common cathod 7-segment display using 4 DIP switches. The seven segment diplay can display a single hexadecimal digit. One LED turns on when one of the first two DIP switches is on. One LED turns on when both of the last two DIP switches are on. One LED blinks at around 2.4Hz.\n\n\n\nThe onboard low speed oscillator (LSOSC) from the iCE40 UltraPlus primitive library has a frequency of 10kHz which is suitable for generating the 2.4Hz for onboard LED with a clock divider module. In the clock divider module, a counter was used to divided the 10kHz clock signal down.\nEach segment of the 7-segment display is a diode, and the output signal from FPGA drives low to light up the diode. With a 3.3V supply to the anode of diode when signal is high, the design needs to ensure that the diodes on the seven segment display have current draw between 5mA to 20mA and maintaining the forward voltage of the led about 2.1V. A current limiting resistor is connected to each diode. The resistor value should between 60 ohms and 120 ohms. After testing the brightness of the LED, I select a resistor of 68 ohms.\n\n\n\nThe source code for the project can be found in the associated Github repository.\n\n\n Figure 1. Block diagram of the verilog design\nThe block diagram in Figure 1 demonstrates the overall architecture of the design. The top-level module top includes two submodules: clock divider module (clock_divider) and seven segment decoder module (seven_seg_decoder).\n\n\n\n Figure 2. Schematic of the physical circuit\nFigure 2 shows the physical layout of the design.\n\n\n\n\n\n\n Figure 3. A screenshot of a QuestaSim simulation demonstrating the display output is identical as expected output.\n\n\n\n\nThe design successfully blinked an on-board LED using the on-board high-speed oscillator. I spent a total of 8 hours working on this lab."
+  },
+  {
+    "objectID": "labs/lab1/lab1.html#lab-1-fpga-and-mcu-setup-and-testing",
+    "href": "labs/lab1/lab1.html#lab-1-fpga-and-mcu-setup-and-testing",
+    "title": "hmc-e155-portforlio",
+    "section": "",
+    "text": "This lab aims to setup the FPGA and MCU board, and design a circuit to control 3 onboard LEDs and a common cathod 7-segment display using 4 DIP switches. The seven segment diplay can display a single hexadecimal digit. One LED turns on when one of the first two DIP switches is on. One LED turns on when both of the last two DIP switches are on. One LED blinks at around 2.4Hz.\n\n\n\nThe onboard low speed oscillator (LSOSC) from the iCE40 UltraPlus primitive library has a frequency of 10kHz which is suitable for generating the 2.4Hz for onboard LED with a clock divider module. In the clock divider module, a counter was used to divided the 10kHz clock signal down.\nEach segment of the 7-segment display is a diode, and the output signal from FPGA drives low to light up the diode. With a 3.3V supply to the anode of diode when signal is high, the design needs to ensure that the diodes on the seven segment display have current draw between 5mA to 20mA and maintaining the forward voltage of the led about 2.1V. A current limiting resistor is connected to each diode. The resistor value should between 60 ohms and 120 ohms. After testing the brightness of the LED, I select a resistor of 68 ohms.\n\n\n\nThe source code for the project can be found in the associated Github repository.\n\n\n Figure 1. Block diagram of the verilog design\nThe block diagram in Figure 1 demonstrates the overall architecture of the design. The top-level module top includes two submodules: clock divider module (clock_divider) and seven segment decoder module (seven_seg_decoder).\n\n\n\n Figure 2. Schematic of the physical circuit\nFigure 2 shows the physical layout of the design.\n\n\n\n\n\n\n Figure 3. A screenshot of a QuestaSim simulation demonstrating the display output is identical as expected output.\n\n\n\n\nThe design successfully blinked an on-board LED using the on-board high-speed oscillator. I spent a total of 8 hours working on this lab."
+  },
+  {
+    "objectID": "posts/lab1-post.html",
+    "href": "posts/lab1-post.html",
+    "title": "Lab 1 Blog",
+    "section": "",
+    "text": "What is something interesting you learned recently in lab or lecture? How do you feel like the course is helping you to grow as a person? Reflect on the character traits you listed at the beginning of the course for ideas about specific areas of growth to reflect on. What did you think about a recent AI prototype? How did your use of AI shape your thinking about what role these tools might play in the future of digital hardware design? Search the Internet for a recent article related to embedded systems. Reflect on those systems through the lens of what you’re learning in MicroPs. What are some ideas you’re thinking about exploring in your project and why?"
   }
 ]
