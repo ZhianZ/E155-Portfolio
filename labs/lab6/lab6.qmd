@@ -1,1 +1,11 @@
 ## Lab 6: The Internet of Things and Serial Peripheral Interface
+
+### Introduction
+
+### Design and Testing Methodology
+
+### Technical Documentation
+
+### Results and Discussion
+
+### Conclusion

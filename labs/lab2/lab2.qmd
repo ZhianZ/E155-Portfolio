@@ -1,1 +1,27 @@
 ## Lab 2: Multiplexed 7-Segment Display
+
+### Introduction
+This lab aims to implemented a time-multiplexing scheme to drive two common anode 7-segment displays with a single set of FPGA I/O pins. Two 4 DIP switches are the inputs to each display. The sum of two hexadecimal numbers will be shown by 5 LEDs.
+
+### Design and Testing Methodology
+While the signals input to the cathodes of the 7-segment displays are provided by FPGA in a way similar to Lab 1, the two common anodes are each connected to an PNP transistor so that FPGA pins don't need to drive a large current. Time multiplexing is used to run both half of the dual 7-segment display. The design only set one half of the display to ON at a time and the switching speed is high enough that the digits don't flicker.
+
+The onboard high speed oscillator (HSOSC) with a clock divider is use to generate an enable signal to drive the common anode low and high. When the anode of one half of the dual segment display is high, the 7 FPGA pins will output the corresponding signals.
+
+### Technical Documentation
+The source code for the project can be found in the associated [Github repository]().
+
+#### Block Diagram
+![](labs/lab2/images/lab2_block_diagram.jpeg)
+Figure 1. Block diagram of the verilog design
+
+The block diagram in Figure 1 demonstrates the overall architecture of the design. The top-level module top includes two submodules: seven segment decoder module (seven_seg_decoder) and time multiplexing module (time_multiplexing).
+
+#### Schematic
+![](labs/lab2/images/lab2_schematics.jpeg)
+Figure 2. Schematic of the physical circuit. 
+
+### Results and Discussion
+
+### Conclusion
+The design successfully display two hexadecimal numbers with only 7 FPGA pins without blending or flickering. I spent a total of  hours working on this lab.

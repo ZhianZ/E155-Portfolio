@@ -1,1 +1,11 @@
 ## Lab 4: Digital Audio
+
+### Introduction
+
+### Design and Testing Methodology
+
+### Technical Documentation
+
+### Results and Discussion
+
+### Conclusion

@@ -1,1 +1,32 @@
 ## Lab 1: FPGA and MCU Setup and Testing
+
+### Introduction
+This lab aims to setup the FPGA and MCU board, and design a circuit to control 3 onboard LEDs and a common cathod 7-segment display using 4 DIP switches. The seven segment diplay can display a single hexadecimal digit. One LED turns on when one of the first two DIP switches is on. One LED turns on when both of the last two DIP switches are on. One LED blinks at around 2.4Hz.
+
+### Design and Testing Methodology
+The onboard low speed oscillator (LSOSC) from the iCE40 UltraPlus primitive library has a frequency of 10kHz which is suitable for generating the 2.4Hz for onboard LED with a clock divider module. In the clock divider module, a counter was used to divided the 10kHz clock signal down.
+
+Each segment of the 7-segment display is a diode, and the output signal from FPGA drives low to light up the diode. With a 3.3V supply to the anode of diode when signal is high, the design needs to ensure that the diodes on the seven segment display have current draw between 5mA to 20mA and maintaining the forward voltage of the led about 2.1V. A current limiting resistor is connected to each diode. The resistor value should between 60 ohms and 120 ohms. After testing the brightness of the LED, I select a resistor of 68 ohms.
+
+### Technical Documentation
+The source code for the project can be found in the associated [Github repository](https://github.com/ZhianZ/e155-lab1/tree/main).
+
+#### Block Diagram
+![](./images/lab1_block_diagram.JPG)
+Figure 1. Block diagram of the verilog design
+
+The block diagram in Figure 1 demonstrates the overall architecture of the design. The top-level module top includes two submodules: clock divider module (clock_divider) and seven segment decoder module (seven_seg_decoder).
+
+#### Schematic
+![](./images/lab1_schematics.JPG)
+Figure 2. Schematic of the physical circuit
+
+Figure 2 shows the physical layout of the design.
+
+### Results and Discussion
+#### Testbench Simulation
+![](./images/seven_seg_decoder_wave.png)
+Figure 3. A screenshot of a QuestaSim simulation demonstrating the display output is identical as expected output.
+
+### Conclusion
+The design successfully blinked an on-board LED using the on-board high-speed oscillator. I spent a total of 8 hours working on this lab.
