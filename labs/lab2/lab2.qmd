@@ -9,17 +9,7 @@ In this lab, the FPGA controlled the 7-segment displays through time-multiplexin
 #### Time-Multiplexing Control
 The onboard high-speed oscillator (HSOSC) was used in conjunction with a clock divider to generate an enable signal. This enable signal was responsible for controlling the common anode of each 7-segment display. Only one of the displays is turned on at a time, and the switching between displays occurs at a frequency high enough to prevent visible flickering.
 
-To ensure that the multiplexing rate was fast enough to avoid flickering, the system required an effective switching frequency. Given that I am multiplexing two displays, the switching rate can be calculated based on the target frequency for display updates. For instance, if I want to refresh the display at 50 Hz, the switching rate must be twice this value, i.e., 100 Hz, because there are two displays.
-
-$$
-f_{\text{switch}} = 2 \times f_{\text{display}}
-$$
-
-Where:
-- \( f_{\text{switch}} \) is the frequency at which the displays switch,
-- \( f_{\text{display}} \) is the desired display refresh rate.
-
-Assuming a desired display refresh rate of 50 Hz, the switching frequency should be 100 Hz. This rate is fast enough to ensure that each display is on for 10 milliseconds, and no flicker is perceptible.
+To ensure that the multiplexing rate was fast enough to avoid flickering, the system required an effective switching frequency. Given that I am multiplexing two displays, the switching rate can be calculated based on the target frequency for display updates. 
 
 #### Segment Driving
 The seven segments of each display are driven by FPGA pins. A 3.3V supply is used for the anodes of the diodes in the 7-segment displays, and the FPGA sets the cathodes low to turn on each segment. To ensure safe operation and prevent excessive current from flowing through the LEDs, a current-limiting resistor is placed in series with each segment. The resistor value is chosen to allow a current of about 20mA through each segment when it is turned on, which is within the recommended operating range for these types of LEDs.
