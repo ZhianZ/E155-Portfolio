@@ -67,35 +67,6 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 <link rel="stylesheet" href="../../styles.css">
 </head>
@@ -209,12 +180,7 @@ window.Quarto = {
 <section id="time-multiplexing-control" class="level4">
 <h4 class="anchored" data-anchor-id="time-multiplexing-control">Time-Multiplexing Control</h4>
 <p>The onboard high-speed oscillator (HSOSC) was used in conjunction with a clock divider to generate an enable signal. This enable signal was responsible for controlling the common anode of each 7-segment display. Only one of the displays is turned on at a time, and the switching between displays occurs at a frequency high enough to prevent visible flickering.</p>
-<p>To ensure that the multiplexing rate was fast enough to avoid flickering, the system required an effective switching frequency. Given that I am multiplexing two displays, the switching rate can be calculated based on the target frequency for display updates. For instance, if I want to refresh the display at 50 Hz, the switching rate must be twice this value, i.e., 100 Hz, because there are two displays.</p>
-<p><span class="math display">\[
-f_{\text{switch}} = 2 \times f_{\text{display}}
-\]</span></p>
-<p>Where: - ( f_{} ) is the frequency at which the displays switch, - ( f_{} ) is the desired display refresh rate.</p>
-<p>Assuming a desired display refresh rate of 50 Hz, the switching frequency should be 100 Hz. This rate is fast enough to ensure that each display is on for 10 milliseconds, and no flicker is perceptible.</p>
+<p>To ensure that the multiplexing rate was fast enough to avoid flickering, the system required an effective switching frequency. Given that I am multiplexing two displays, the switching rate can be calculated based on the target frequency for display updates.</p>
 </section>
 <section id="segment-driving" class="level4">
 <h4 class="anchored" data-anchor-id="segment-driving">Segment Driving</h4>
@@ -236,7 +202,7 @@ f_{\text{switch}} = 2 \times f_{\text{display}}
 </section>
 <section id="schematic" class="level4">
 <h4 class="anchored" data-anchor-id="schematic">Schematic</h4>
-<p><img src="./images/lab2_schematics.jpeg" class="img-fluid"> <em>Figure 2. Schematic of the physical circuit</em></p>
+<p><img src="./images/lab2_schematics.jpg" class="img-fluid"> <em>Figure 2. Schematic of the physical circuit</em></p>
 <p>Figure 2 shows the physical layout of the design. It illustrates the connections between the FPGA and the two 7-segment displays, as well as the integration of the common anode control using the PNP transistors.</p>
 </section>
 </section>
