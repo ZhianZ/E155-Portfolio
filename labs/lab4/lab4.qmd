@@ -1,11 +1,97 @@
 ## Lab 4: Digital Audio
 
 ### Introduction
+This lab explores generating simple audio using a microcontroller’s General-Purpose Input/Output (GPIO) pin to produce square waves at specific frequencies and durations, which allows the microcontroller (MCU) to output musical notes. By programming the MCU with sequences of frequencies and durations, simple melodies are generated, specifically Beethoven’s "Für Elise" and "Ode to Joy." The lab required creating a custom library to interface directly with the hardware timer peripherals on the STM32L432KC microcontroller, instead of using the CMSIS library.
 
 ### Design and Testing Methodology
+The system design began with configuring the MCU clock speed to 80 MHz through the RCC library, providing the necessary precision to generate the desired frequency and duration intervals. We then set up the timers with different prescaler values, allowing us to achieve the correct time base for both PWM and delay functionalities. To control sound duration, we configured a timer with a prescaler of 7999, resulting in a time base of 0.1 ms. This was calculated using the formula:
+
+$$ \text{Time base} = \frac{80 \, \text{MHz}}{\text{TIM\_PSC} + 1} $$
+
+where $\text{TIM\_PSC}$ is the prescaler value. This configuration allowed precise timing control within the range specified, as each tick represented 0.1 ms. For PWM, we used a different prescaler of 799 to obtain a finer time base, set to 10 μs, allowing us to control frequencies in the desired audio range by dynamically adjusting the auto-reload register ($\text{TIM\_ARR}$).
+
+Once the timers were configured, we implemented `delay_millis()` and `setFreq()` functions. The `delay_millis()` function utilizes the timer’s 0.1 ms time base, setting $\text{TIM\_ARR}$ to the desired duration in milliseconds. It waits for the timer to overflow, allowing precise control over sound duration. For frequency adjustments, `setFreq()` calculates the appropriate auto-reload value based on the target frequency:
+
+$$ \text{TIM\_ARR} = \frac{100000}{\text{frequency}} $$
+
+This relationship allows dynamic adjustments to the PWM frequency, outputting sound at the specified pitch. Additionally, a 50% duty cycle was achieved by setting the capture/compare register ($\text{TIM\_CCR1}$) to half the value of $\text{TIM\_ARR}$.
+
+Additionally, the potentiometer provided additional control over output volume. Connected to the PWM output stage, it adjusts the duty cycle, allowing real-time modulation of sound intensity. This added flexibility in testing and adjusting the sound output without code changes, enabling smoother interactions during experimentation.
+
+#### Frequency Error Calculation
+To ensure that the frequencies generated were within 1% of the expected values (220 Hz to 1000 Hz), I calculated the theoretical frequency for each desired frequency based on the $\text{TIM\_ARR}$ value and compared the result. The formula for calculating the output frequency from the $\text{TIM\_ARR}$ value is:
+
+$$ \text{Frequency} = \frac{100000}{\text{TIM\_ARR}} $$
+
+I calculated the $\text{TIM\_ARR}$ value, and recalculated the frequency to verify that it was within the acceptable range.
+
+- **For 220 Hz:**
+
+  $$ \text{TIM\_ARR} = \frac{100000}{220} = 454.545 \quad \text{(rounded to 455)} $$
+
+  Recalculating the frequency from this value:
+
+  $$ \text{Frequency} = \frac{100000}{455} \approx 219.78 \, \text{Hz} $$
+
+  The error is:
+
+  $$ \text{Error} = \frac{220 - 219.78}{220} \times 100 < 0.1\% $$
+
+- **For 999 Hz:**
+
+  $$ \text{TIM\_ARR} = \frac{100000}{999} = 100.1 \quad \text{(rounded to 100)}$$
+
+  Recalculating the frequency from this value:
+
+  $$ \text{Frequency} = \frac{100000}{100} = 1000 \, \text{Hz} $$
+
+  The error is:
+
+  $$ \text{Error} = \frac{1000 - 999}{1000} \times 100 = 0.1\% $$
+
+The error was found to be less than 1%, confirming the accuracy of the generated frequencies within the desired tolerance.
+
+#### Frequency and Duration Range Verification
+- **For 262 Hz (minimum frequency):**
+  
+  $$ \text{TIM\_ARR} = \frac{100000}{262} \approx 381 $$
+
+- **For 1319 Hz (maximum frequency):**
+
+  $$ \text{TIM\_ARR} = \frac{100000}{1319} \approx 76 $$
+
+These calculations verify that the PWM configuration effectively generates the desired frequencies, with $\text{TIM\_ARR}$ values properly scaled for the timer’s time base.
+
+Similarly, the duration limit is from 125 ms to 1 second. Given the 0.1 ms time base, the corresponding $\text{TIM\_ARR}$ values for these limits using are calculated:
+
+$$ \text{TIM\_ARR} = \text{duration (ms)} \times 10 $$
+
+- **For 125 ms (minimum duration):**
+  
+  $$ \text{TIM\_ARR} = 125 \times 10 = 1250 $$
+
+- **For 1 second (maximum duration):**
+
+  $$ \text{TIM\_ARR} = 1000 \times 10 = 10000 $$
+
+
 
 ### Technical Documentation
+The source code for the project can be found in the associated [Github repository](https://github.com/ZhianZ/e155-lab4/tree/main).
+
+![](./images/lab4_schematics.jpg)
+*Figure 1. Schematic of the physical circuit*
+
+The schematic hows the complete circuit design for audio output, including the potentiometer used to control volume. The microcontroller’s GPIO pin outputs PWM signals, which pass through the potentiometer to adjust the amplitude of the sound. By adjusting the potentiometer, the voltage level sent to the speaker can be controlled.
 
 ### Results and Discussion
+Below is a demonstration of the result, showing the successful playback of notes.
+
+<video width="600" controls>
+  <source src="path/to/your/video.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+
 
 ### Conclusion
+This lab demonstrated successful sound generation using the MCU’s GPIO pin to output square waves at specific frequencies and durations. The MCU was able to produce simple melodies by sequencing notes through code. I spent approximately 12 hours working on this lab.
