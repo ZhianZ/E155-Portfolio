@@ -41,7 +41,7 @@ The block diagram in Figure 1 demonstrates the overall architecture of the desig
 2. **Time Multiplexing Module (time_multiplexing)**: This module controls the timing for multiplexing the two displays, ensuring that only one display is activated at a time and that the switching is fast enough to avoid flickering.
 
 #### Schematic
-![](./images/lab2_schematics.jpeg)
+![](./images/lab2_schematics.jpg)
 *Figure 2. Schematic of the physical circuit*
 
 Figure 2 shows the physical layout of the design. It illustrates the connections between the FPGA and the two 7-segment displays, as well as the integration of the common anode control using the PNP transistors.
